@@ -235,7 +235,7 @@ html[data-theme=light] button:focus-visible {
 }
 
 .skill-row {
-  grid-template-columns: 55px minmax(230px,25%) 1fr;
+  grid-template-columns: minmax(230px,25%) 1fr;
 }
 
 @media (min-width: 1600px) {
@@ -275,7 +275,7 @@ html[data-theme=light] button:focus-visible {
   }
 
   .skill-row {
-    grid-template-columns: 35px 205px 1fr;
+    grid-template-columns: 205px 1fr;
     gap: 10px;
   }
 }
@@ -314,12 +314,7 @@ html[data-theme=light] button:focus-visible {
   }
 
   .skill-row {
-    grid-template-columns: 24px 1fr;
-  }
-
-  .skill-row>p,
-  .skill-row>div {
-    grid-column: 2;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -520,5 +515,77 @@ html[data-theme=light] .note-arrow {
   .theme-toggle:hover,
   .button:hover {
     transform: none;
+  }
+}
+
+/* ---- Hero signature: glyph field (see glyph-field.js) ---- */
+.glyph-field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* Fades out at the edges so the field sits inside the hero, not on top of it. */
+  -webkit-mask-image: radial-gradient(120% 90% at 60% 45%, #000 45%, transparent 85%);
+  mask-image: radial-gradient(120% 90% at 60% 45%, #000 45%, transparent 85%);
+}
+
+.hero > :not(.glyph-field) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Small text keeps a solid backdrop so the glyphs never sit behind it. */
+.ask-hook,
+.hero-bottom p {
+  background: var(--bg);
+}
+
+.hero-bottom p {
+  box-shadow: 0 0 0 10px var(--bg);
+}
+
+/* One orchestrated moment: the name rises once on load. */
+.hero h1 {
+  animation: name-rise .9s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.glyph-field {
+  animation: field-in 1.6s ease .3s both;
+}
+
+@keyframes name-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18%);
+  }
+}
+
+@keyframes field-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* ---- Mobile: keep the section links reachable ---- */
+@media (max-width: 600px) {
+  .nav {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 16px 0 14px;
+    row-gap: 10px;
+  }
+
+  .nav nav {
+    display: flex;
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+    gap: 22px;
+    font-size: 14px;
+  }
+
+  .nav nav a {
+    padding: 6px 0;
   }
 }

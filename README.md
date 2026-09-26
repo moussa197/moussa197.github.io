@@ -37,4 +37,4 @@ Le travail en équipe compte aussi beaucoup pour moi. Pendant deux ans, j'ai ét
 
 - ✉️ [moussa01kta@gmail.com](mailto:moussa01kta@gmail.com)
 - 💻 [GitHub](https://github.com/moussa197)
-- 📄 [Mon CV](https://www.canva.com/d/Jo2c9z4EA_8ujmW)
+- 📄 [Mon CV](cv/cv-moussa-keita.pdf)

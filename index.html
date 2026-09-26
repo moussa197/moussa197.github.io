@@ -28,21 +28,16 @@
         <a href="#competences">Compétences</a>
       </nav>
       <button class="theme-toggle" type="button" aria-label="Activer le thème clair" title="Changer de thème">◐</button>
-      <a class="nav-contact" href="#contact">Parlons ensemble <span aria-hidden="true">↗</span></a>
+      <a class="nav-contact" href="#contact">Me contacter</a>
     </header>
 
     <main>
       <section class="hero wrap" id="accueil">
+        <canvas class="glyph-field" aria-hidden="true"></canvas>
         <div class="hero-top">
           <div class="hero-intro">
-            <div class="eyebrow">
-              <span class="small-line"></span> MOUSSA KEITA · ÉTUDIANT À L'ESEO
-            </div>
-
             <button class="ask-hook" type="button" data-open-chat>
-              <span aria-hidden="true">💬</span>
               <span>Une question sur mon parcours ? <strong>Demandez à mon assistant IA</strong>, que j'ai développé moi-même.</span>
-              <span class="note-arrow" aria-hidden="true">↗</span>
             </button>
           </div>
 
@@ -55,36 +50,29 @@
             </span>
             <span>
               <strong>Je recherche un stage<br>ou une alternance.</strong>
-              <span class="opportunity-sub">En développement informatique · Parlons-en</span>
+              <span class="opportunity-sub">En développement informatique. Écrivez-moi.</span>
             </span>
-            <span class="note-arrow" aria-hidden="true">↗</span>
           </a>
         </div>
 
         <h1>
-          Moussa Keita.<br>
-          <span class="accent">J'apprends.</span><br>
-          Je développe.
+          Moussa Keita
         </h1>
 
         <div class="hero-bottom">
           <p>
-            Étudiant en informatique et IA à l'ESEO.<br>
+            Étudiant en informatique et IA à l'ESEO, à Angers.<br>
             Je développe des projets web et j'explore Python, Java et la Data.
           </p>
           <div class="hero-actions">
-            <a class="button" href="#projets">Explorer mes projets <span aria-hidden="true">↓</span></a>
+            <a class="button" href="#projets">Voir mes projets</a>
           </div>
         </div>
       </section>
 
       <section class="work wrap" id="projets">
         <div class="section-head">
-          <div>
-            <p class="eyebrow">01 / CE QUE JE CONSTRUIS</p>
-            <h2>Mes projets,<br><em>et ce que j'y fais.</em></h2>
-          </div>
-          <p>Quatre projets pour apprendre<br>en faisant, du code au déploiement.</p>
+          <h2>Mes projets</h2>
         </div>
 
         <div class="project-filters" role="group" aria-label="Filtrer les projets">
@@ -97,9 +85,8 @@
         <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
 
         <article class="project featured" data-category="ia">
-          <div class="project-index">01 / ASSISTANT IA</div>
           <div class="project-body">
-            <h3>Ask Moussa.<br>Assistant IA.</h3>
+            <h3>Ask Moussa</h3>
             <p>Chatbot IA intégré à ce portfolio, qui répond aux questions sur mon parcours à partir de mes documents. Développé en Python avec FastAPI et l'API Claude, testé avec pytest et déployé sur Render, avec limitation de requêtes, CORS et protection contre l'injection de prompt.</p>
             <div class="tags">
               <span>Python</span>
@@ -111,10 +98,10 @@
             </div>
             <div class="project-links">
               <button class="repo-link is-primary" type="button" data-open-chat>
-                Essayer <span aria-hidden="true">↗</span>
+                Essayer
               </button>
               <a class="repo-link" href="https://github.com/moussa197/askMoussa" target="_blank" rel="noopener noreferrer">
-                Voir le code sur GitHub <span aria-hidden="true">↗</span>
+                Voir le code sur GitHub
               </a>
             </div>
           </div>
@@ -127,14 +114,11 @@
               <p><strong>La qualité.</strong> Des tests automatisés avec pytest, puis un déploiement sur Render.</p>
             </div>
           </details>
-
-          <span class="project-number" aria-hidden="true">01</span>
         </article>
 
         <article class="project featured" data-category="app">
-          <div class="project-index">02 / APPLICATION WEB EN ÉQUIPE</div>
           <div class="project-body">
-            <h3>Letterix.<br>Les lettres en jeu.</h3>
+            <h3>Letterix</h3>
             <p>Une plateforme de jeux de lettres développée en équipe : Motus et mots mêlés, avec profils de joueurs et classement.</p>
             <div class="tags">
               <span>PHP</span>
@@ -143,7 +127,7 @@
               <span>HTML / CSS</span>
             </div>
             <a class="repo-link" href="https://github.com/LoanKma/projet-web-v2" target="_blank" rel="noopener noreferrer">
-              Voir le code sur GitHub <span aria-hidden="true">↗</span>
+              Voir le code sur GitHub
             </a>
           </div>
 
@@ -154,15 +138,12 @@
               <p><strong>Le travail collectif.</strong> Répartir les tâches, suivre l'avancement et coordonner le développement avec l'équipe.</p>
             </div>
           </details>
-
-          <span class="project-number" aria-hidden="true">02</span>
         </article>
 
         <div class="project-pair">
           <article class="project secondary" data-category="site">
-            <div class="project-index">03 / DÉVELOPPEMENT WEB</div>
             <div class="project-body">
-              <h3>Site de restaurant.</h3>
+              <h3>Site de restaurant</h3>
               <p>Un site vitrine de restaurant avec menu, galerie et formulaire de réservation. Une interface responsive pour s'adapter aux écrans.</p>
               <div class="tags">
                 <span>HTML / CSS</span>
@@ -179,9 +160,8 @@
           </article>
 
           <article class="project secondary blue" data-category="site">
-            <div class="project-index">04 / PROJET PERSONNEL</div>
             <div class="project-body">
-              <h3>Mon portfolio.</h3>
+              <h3>Mon portfolio</h3>
               <p>Un espace pour présenter mon parcours et mes projets. Navigation par filtres, thème clair ou sombre et contact direct, sur mobile comme sur ordinateur.</p>
               <div class="tags">
                 <span>HTML / CSS</span>
@@ -195,31 +175,28 @@
 
       <section class="about wrap" id="parcours">
         <div class="section-head">
-          <div>
-            <p class="eyebrow">02 / LE PARCOURS</p>
-            <h2>L'informatique,<br><em>en cours et en pratique.</em></h2>
-          </div>
+          <h2>Mon parcours</h2>
         </div>
 
         <div class="about-grid">
           <div class="about-copy">
             <p>Moi, c'est Moussa. À l'ESEO, j'explore la programmation, le développement web et les tests logiciels. La Data et l'intelligence artificielle sont la suite de cet apprentissage.</p>
             <p>J'aime transformer ce que j'apprends en projets concrets. Le travail en équipe compte aussi : mon expérience au BDE m'a appris à coordonner, communiquer et prendre part aux décisions.</p>
-            <a class="text-link" href="https://www.canva.com/d/Jo2c9z4EA_8ujmW" target="_blank" rel="noopener noreferrer">
-              Mon CV sur Canva <span aria-hidden="true">↗</span>
+            <a class="text-link" href="cv/cv-moussa-keita.pdf" target="_blank" rel="noopener" type="application/pdf">
+              Voir mon CV
             </a>
           </div>
 
           <div class="timeline">
             <article>
-              <span>DEPUIS 2025</span>
+              <span>Depuis 2025</span>
               <h3>Bachelor Informatique & IA</h3>
-              <p>ESEO · Angers · En cours</p>
+              <p>ESEO, Angers, en cours</p>
             </article>
             <article>
               <span>2022 — 2025</span>
               <h3>Baccalauréat scientifique</h3>
-              <p>LEP Rose Dieng Kuntz · Dakar</p>
+              <p>LEP Rose Dieng Kuntz, Dakar</p>
             </article>
             <article>
               <span>2022 — 2024</span>
@@ -233,60 +210,49 @@
 
       <section class="skills wrap" id="competences">
         <div class="section-head">
-          <div>
-            <p class="eyebrow">03 / MA BOÎTE À OUTILS</p>
-            <h2>Ce que j'utilise.<br><em>Ce que j'apprends.</em></h2>
-          </div>
-          <p>Des compétences en construction,<br>mises en pratique au fil des projets.</p>
+          <h2>Compétences</h2>
         </div>
 
         <div class="skill-row">
-          <span class="skill-num">01</span>
           <h3>Développement</h3>
-          <p>Python · FastAPI · Java · JavaScript · PHP · HTML · CSS</p>
+          <p>Python, FastAPI, Java, JavaScript, PHP, HTML, CSS</p>
         </div>
 
         <div class="skill-row">
-          <span class="skill-num">02</span>
           <h3>Données</h3>
           <div>
-            <p>SQL · MySQL</p>
-            <p class="muted">Notions : Pandas, NumPy · Jupyter, Anaconda</p>
+            <p>SQL, MySQL</p>
+            <p class="muted">Notions : Pandas, NumPy, Jupyter, Anaconda</p>
           </div>
         </div>
 
         <div class="skill-row">
-          <span class="skill-num">03</span>
           <h3>IA</h3>
           <div>
-            <p>API Claude · Prompt engineering · Assistant sur documents</p>
-            <p class="muted">Sécurisation : limitation de requêtes · CORS · protection contre l'injection de prompt</p>
+            <p>API Claude, prompt engineering, assistant sur documents</p>
+            <p class="muted">Sécurisation : limitation de requêtes, CORS et protection contre l'injection de prompt</p>
           </div>
         </div>
 
         <div class="skill-row">
-          <span class="skill-num">04</span>
-          <h3>Tests & qualité</h3>
-          <p>JUnit · Mockito · pytest · Tests unitaires et paramétrés</p>
+          <h3>Tests et qualité</h3>
+          <p>JUnit, Mockito, pytest, tests unitaires et paramétrés</p>
         </div>
 
         <div class="skill-row">
-          <span class="skill-num">05</span>
           <h3>Environnement</h3>
-          <p>Git · GitHub · VS Code · IntelliJ IDEA · Render</p>
+          <p>Git, GitHub, VS Code, IntelliJ IDEA, Render</p>
         </div>
 
         <div class="skill-row">
-          <span class="skill-num">06</span>
           <h3>Travail en équipe</h3>
-          <p>Agile · Scrum · Jira · Figma · Canva</p>
+          <p>Agile, Scrum, Jira, Figma, Canva</p>
         </div>
       </section>
 
       <section class="contact" id="contact">
         <div class="wrap">
-          <p class="eyebrow">ET POUR LA SUITE ?</p>
-          <h2>Faisons<br><span>connaissance.</span></h2>
+          <h2>Faisons<br>connaissance.</h2>
 
           <div class="contact-bottom">
             <p>
@@ -296,7 +262,7 @@
             </p>
 
             <div class="email-actions">
-              <a href="mailto:moussa01kta@gmail.com">moussa01kta@gmail.com <span aria-hidden="true">↗</span></a>
+              <a href="mailto:moussa01kta@gmail.com">moussa01kta@gmail.com</a>
               <button type="button" id="copy-email">Copier l'adresse e-mail</button>
               <span id="copy-status" role="status" aria-live="polite"></span>
             </div>
@@ -307,12 +273,13 @@
 
     <footer class="wrap">
       <a class="brand" href="#accueil" aria-label="Retour en haut">mk<span>.</span></a>
-      <p>Moussa Keita · Développement & IA</p>
-      <a href="https://github.com/moussa197" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <p>Codé en HTML, CSS et JavaScript, sans framework.</p>
+      <a href="https://github.com/moussa197" target="_blank" rel="noopener noreferrer">GitHub</a>
     </footer>
 
     <script src="script.js"></script>
     <script src="chat-widget.js"></script>
+    <script src="glyph-field.js"></script>
   </body>
 </html>
 

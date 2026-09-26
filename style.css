@@ -436,7 +436,7 @@ details[open] summary span {
 
 .skill-row {
   display: grid;
-  grid-template-columns: 55px 260px 1fr;
+  grid-template-columns: 260px 1fr;
   border-top: 1px solid var(--line);
   gap: 20px;
   align-items: center;
@@ -576,7 +576,7 @@ footer>a:last-child {
   }
 
   .skill-row {
-    grid-template-columns: 35px 205px 1fr;
+    grid-template-columns: 205px 1fr;
     gap: 10px;
   }
 
@@ -724,14 +724,9 @@ footer>a:last-child {
   }
 
   .skill-row {
-    grid-template-columns: 24px 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
     padding: 20px 0;
-  }
-
-  .skill-row>p,
-  .skill-row>div {
-    grid-column: 2;
   }
 
   .skill-row h3 {

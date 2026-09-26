@@ -28,10 +28,12 @@
   };
 
   const ICONS = {
-    chat: ['M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 20.5l1.4-5.1A8.5 8.5 0 1 1 21 11.5Z', 'M8.5 11.5h.01M12.5 11.5h.01M16.5 11.5h.01'],
     close: ['M6 6l12 12', 'M18 6 6 18'],
-    send: ['M5 12h14', 'M13 6l6 6-6 6'],
   };
+
+  // Same glyph set as the hero field (glyph-field.js).
+  const GLYPHS = '{}()<>[]/;=+*#_01';
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
   function el(tag, props = {}, children = []) {
     const node = document.createElement(tag);
@@ -70,6 +72,8 @@
   }
 
   // ---- Markup ----
+  const launcherText = el('span', { text: 'Ask Moussa' });
+  const launcherHint = el('span', { className: 'amc-sr-only', text: ", l'assistant IA" });
   const launcher = el(
     'button',
     {
@@ -77,9 +81,8 @@
       type: 'button',
       'aria-expanded': 'false',
       'aria-controls': 'amc-panel',
-      'aria-label': "Ouvrir Ask Moussa, l'assistant IA",
     },
-    [icon('chat', 'amc-icon-chat'), icon('close', 'amc-icon-close')]
+    [el('span', { className: 'amc-caret', 'aria-hidden': 'true' }), launcherText, launcherHint]
   );
 
   const closeButton = el(
@@ -89,13 +92,12 @@
   );
 
   const header = el('div', { className: 'amc-head' }, [
-    el('span', { className: 'amc-avatar', 'aria-hidden': 'true', text: 'mk' }),
     el('div', { className: 'amc-head-text' }, [
       el('p', { className: 'amc-title', id: 'amc-title', text: 'Ask Moussa' }),
       el('p', {
         className: 'amc-disclaimer',
         id: 'amc-disclaimer',
-        text: 'Assistant IA, il peut faire des erreurs',
+        text: 'Il répond à partir de mes documents, et il peut se tromper.',
       }),
     ]),
     closeButton,
@@ -135,10 +137,7 @@
     text: `0/${MAX_LENGTH}`,
   });
 
-  const sendButton = el('button', { className: 'amc-send', type: 'submit' }, [
-    el('span', { text: 'Envoyer' }),
-    icon('send'),
-  ]);
+  const sendButton = el('button', { className: 'amc-send', type: 'submit', text: 'Envoyer' });
 
   const form = el('form', { className: 'amc-form', novalidate: '' }, [
     el('label', { className: 'amc-sr-only', for: 'amc-input', text: 'Votre question' }),
@@ -167,9 +166,9 @@
   }
 
   function addMessage(kind, text) {
-    const who = kind === 'user' ? 'Vous : ' : 'Ask Moussa : ';
+    const who = kind === 'user' ? 'Vous' : 'Ask Moussa';
     const bubble = el('p', { className: `amc-msg amc-msg--${kind}` }, [
-      el('span', { className: 'amc-sr-only', text: who }),
+      kind === 'status' ? el('span', { className: 'amc-sr-only', text: `${who} : ` }) : el('span', { className: 'amc-who', text: who }),
     ]);
     // Answers are always inserted as plain text, never as HTML.
     bubble.append(document.createTextNode(text));
@@ -188,15 +187,25 @@
   }
 
   function addTyping() {
+    const glyphs = el('span', { className: 'amc-glyphs', 'aria-hidden': 'true', text: '{ ; }' });
     const typing = el('p', { className: 'amc-msg amc-msg--bot amc-typing' }, [
-      el('span', { className: 'amc-sr-only', text: 'Ask Moussa rédige une réponse…' }),
-      el('span', { className: 'amc-dot', 'aria-hidden': 'true' }),
-      el('span', { className: 'amc-dot', 'aria-hidden': 'true' }),
-      el('span', { className: 'amc-dot', 'aria-hidden': 'true' }),
+      el('span', { className: 'amc-who', text: 'Ask Moussa' }),
+      el('span', { className: 'amc-sr-only', text: 'rédige une réponse…' }),
+      glyphs,
     ]);
     log.append(typing);
     scrollToEnd();
-    return typing;
+
+    const pick = () => GLYPHS[(Math.random() * GLYPHS.length) | 0];
+    const timer = reduceMotion.matches
+      ? 0
+      : setInterval(() => (glyphs.textContent = `${pick()} ${pick()} ${pick()}`), 110);
+    return {
+      remove() {
+        clearInterval(timer);
+        typing.remove();
+      },
+    };
   }
 
   // ---- Input ----
@@ -285,7 +294,8 @@
       panel.hidden = false;
       root.classList.add('is-open');
       launcher.setAttribute('aria-expanded', 'true');
-      launcher.setAttribute('aria-label', "Fermer Ask Moussa, l'assistant IA");
+      launcherText.textContent = 'Fermer';
+      launcherHint.textContent = " l'assistant";
       scrollToEnd();
     }
     input.focus({ preventScroll: true });
@@ -296,7 +306,8 @@
     panel.hidden = true;
     root.classList.remove('is-open');
     launcher.setAttribute('aria-expanded', 'false');
-    launcher.setAttribute('aria-label', "Ouvrir Ask Moussa, l'assistant IA");
+    launcherText.textContent = 'Ask Moussa';
+    launcherHint.textContent = ", l'assistant IA";
     const target = document.contains(returnFocusTo) ? returnFocusTo : launcher;
     target.focus({ preventScroll: true });
     returnFocusTo = launcher;
