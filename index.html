@@ -78,6 +78,7 @@
         <div class="project-filters" role="group" aria-label="Filtrer les projets">
           <button type="button" data-filter="all" aria-pressed="true">Tous les projets</button>
           <button type="button" data-filter="ia" aria-pressed="false">IA</button>
+          <button type="button" data-filter="java" aria-pressed="false">Application Java</button>
           <button type="button" data-filter="app" aria-pressed="false">Application PHP / MySQL</button>
           <button type="button" data-filter="site" aria-pressed="false">Sites web</button>
         </div>
@@ -112,6 +113,33 @@
               <p><strong>Le fonctionnement.</strong> Une API FastAPI reçoit la question, l'envoie à l'API Claude avec mes documents comme contexte, et renvoie une réponse à la bulle de chat de ce site.</p>
               <p><strong>La sécurité.</strong> Limitation du nombre de requêtes, CORS, taille des questions limitée et protection contre l'injection de prompt.</p>
               <p><strong>La qualité.</strong> Des tests automatisés avec pytest, puis un déploiement sur Render.</p>
+            </div>
+          </details>
+        </article>
+
+        <article class="project featured" data-category="java">
+          <div class="project-body">
+            <h3>MemoMakerr</h3>
+            <p>Une application de bureau pour les voyageurs : créer ses voyages, y ajouter des souvenirs géolocalisés avec photos et émotions, puis les revoir sur une carte interactive, une timeline et des statistiques. Un bilan annuel façon « Wrapped » peut être partagé sous forme de page web.</p>
+            <div class="tags">
+              <span>Java 21</span>
+              <span>JavaFX</span>
+              <span>MySQL</span>
+              <span>JDBC</span>
+              <span>Leaflet.js</span>
+              <span>JUnit 5</span>
+              <span>Maven</span>
+            </div>
+          </div>
+
+          <details>
+            <summary>Dans les coulisses <span aria-hidden="true">+</span></summary>
+            <div class="detail-content">
+              <p><strong>L'architecture.</strong> Une architecture MVC : les écrans FXML passent par des contrôleurs JavaFX, qui appellent des services métier, eux-mêmes reliés à MySQL par des DAO et des requêtes préparées.</p>
+              <p><strong>La carte.</strong> Leaflet.js et OpenStreetMap intégrés dans une WebView : marqueurs colorés selon l'émotion, tracé de l'itinéraire entre les étapes et recherche de villes avec l'API Nominatim.</p>
+              <p><strong>Les statistiques.</strong> Pays visités, émotions dominantes, mois le plus actif et distance parcourue, calculée avec la formule de Haversine. Le bilan annuel est converti en JSON, encodé en Base64 dans une URL, sans jamais exposer les chemins locaux des photos.</p>
+              <p><strong>La sécurité et la qualité.</strong> Mots de passe hachés avec BCrypt, gestion de session et de rôles avec un espace d'administration, tests JUnit 5 et documentation Javadoc.</p>
+              <p><strong>Le travail collectif.</strong> Projet de fin de semestre à l'ESEO, mené à quatre en méthode Agile avec Git et Trello. J'ai alterné entre les rôles de product manager, Scrum Master, lead dev et développeur.</p>
             </div>
           </details>
         </article>
